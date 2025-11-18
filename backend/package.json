@@ -1,6 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
+<<<<<<< HEAD
   "type": "module",
   "main": "server.js",
   "scripts": {
@@ -16,5 +17,23 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
+=======
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.19.3"
+>>>>>>> 3d37cde45cdf64b255eac8e6b41af4a01724e31b
   }
 }
