@@ -1,0 +1,113 @@
+/* Hand Cricket — Stadium Theme (fixed game logic)
+   Colors: green, yellow, white. Clean scoreboard, stadium visual
+*/
+
+:root{
+  --grass-1: #0f6b3f;
+  --grass-2: #1a8f4d;
+  --accent-yellow: #ffd166;
+  --panel: rgba(255,255,255,0.06);
+  --muted: rgba(255,255,255,0.8);
+  --dark: #0a0f0c;
+  --card-shadow: 0 14px 40px rgba(8,10,10,0.6);
+}
+
+* { box-sizing: border-box; }
+body,html { margin:0; padding:0; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; background: linear-gradient(180deg,#05260f,#062a11); color:#fff; }
+
+/* Root & card */
+.hc-root.stadium-theme { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:28px; }
+.hc-card {
+  width:100%;
+  max-width:1100px;
+  border-radius:14px;
+  padding:18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(255,255,255,0.03);
+  overflow:hidden;
+}
+
+/* Header */
+.hc-header { display:flex; align-items:center; gap:14px; margin-bottom:12px; }
+.hc-logo { font-size:34px; background: linear-gradient(180deg,#fff6e8,#ffeab0); color:#0a2a1a; padding:10px; border-radius:8px; }
+.hc-title { margin:0; font-size:20px; font-weight:800; color:#fff; }
+.hc-sub { font-size:13px; opacity:0.9; color: #eaf6ea; }
+.hc-scoreboard { margin-left:auto; display:flex; gap:12px; }
+.sb-item { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:8px 12px; border-radius:10px; text-align:center; min-width:78px; }
+.sb-label { font-size:12px; color:#dff6df; }
+.sb-value { font-weight:900; font-size:18px; color:#fff; }
+
+/* Toss */
+.hc-toss { text-align:center; margin:18px 0; }
+.section-title { font-size:16px; margin:8px 0; color:#f7f9f7; }
+.toss-buttons { display:flex; gap:12px; justify-content:center; margin-top:8px; }
+.toss-btn { padding:10px 16px; border-radius:10px; border:none; background: linear-gradient(180deg,#ffd166,#ffb84d); color:#0b2a16; font-weight:800; cursor:pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.35); }
+.toss-btn:hover { transform: translateY(-4px); }
+
+/* Coin */
+.hc-tossing { text-align:center; margin:18px 0; }
+.coin { width:84px; height:84px; margin: 12px auto; position:relative; transform-style:preserve-3d; perspective:800px; }
+.coin.spinning { animation: coinSpin 0.8s linear infinite; }
+.coin .face { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:28px; border-radius:50%; background: linear-gradient(180deg,#fff,#ffd); color:#073; }
+.coin .face.tails { background: linear-gradient(180deg,#fff,#ffd); transform: rotateY(180deg); color:#c33; }
+.show-heads { transform: rotateY(0deg); transition: transform 0.6s ease; }
+.show-tails { transform: rotateY(180deg); transition: transform 0.6s ease; }
+@keyframes coinSpin { from { transform: rotateY(0) } to { transform: rotateY(360deg) } }
+
+/* toss result / role choose */
+.choose-role, .bot-choose { margin-top:12px; text-align:center; }
+.role-buttons { display:flex; gap:10px; justify-content:center; margin-top:8px; }
+.role-btn { padding:8px 14px; background: linear-gradient(180deg,#d4ffb8,#8be78f); border-radius:10px; border:none; color:#083; font-weight:800; cursor:pointer; }
+.role-btn:hover { transform: translateY(-3px); }
+
+/* status row */
+.hc-status-row { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:10px 0; }
+.status-pill { background: linear-gradient(180deg,#155d2e,#0f4b24); padding:8px 12px; border-radius:999px; font-weight:700; color:#dff6df; }
+.last-moves { font-size:14px; color:#eaf6ea; display:flex; gap:14px; align-items:center; }
+
+/* play area layout */
+.hc-play-area { display:grid; grid-template-columns: 1fr 420px; gap:18px; align-items:start; margin-top:12px; }
+
+/* left panel: controls */
+.hc-panel { background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005)); border-radius:12px; padding:14px; border:1px solid rgba(255,255,255,0.02); }
+.hc-left { min-height:260px; }
+.result-display { margin-bottom:12px; font-weight:700; color:#fff8d6; }
+
+/* moves grid */
+.hc-move-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; }
+.hc-move-btn { background: linear-gradient(180deg,#e6f9e9,#c8f1d0); border-radius:10px; border:none; padding:10px; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:4px; box-shadow: 0 8px 18px rgba(0,0,0,0.25); color:#063; font-weight:800; }
+.hc-move-btn .hc-move-emoji { font-size:28px; }
+.hc-move-label { font-size:12px; color:#083; }
+.hc-move-btn:hover { transform: translateY(-6px); }
+
+/* right panel: stadium */
+.hc-right { display:flex; flex-direction:column; gap:12px; align-items:center; }
+.stadium { width:100%; border-radius:10px; background: linear-gradient(180deg,var(--grass-1),var(--grass-2)); padding:12px; box-shadow: inset 0 8px 20px rgba(0,0,0,0.25); }
+.pitch { width:80%; height:10px; background: linear-gradient(180deg,#efe8c0,#d8c77d); margin:12px auto; border-radius:6px; box-shadow: inset 0 2px 6px rgba(0,0,0,0.25); }
+.stands { width:100%; display:flex; flex-direction:column; gap:6px; }
+.stand-row { height:14px; background: linear-gradient(90deg,#ffd16622,#ffd16611); border-radius:6px; }
+
+/* target box */
+.target { width:100%; background: rgba(255,255,255,0.02); border-radius:10px; padding:12px; text-align:center; border:1px solid rgba(255,255,255,0.02); }
+.target-label { font-size:12px; color:#fffbe6; margin-bottom:6px; }
+.target-value { font-size:22px; font-weight:900; color:#fff; }
+.target-sub { font-size:12px; color:#d7f4d6; margin-top:6px; }
+
+/* footer */
+.hc-footer { margin-top:16px; display:flex; justify-content:space-between; color:#d7f4d6; font-size:13px; }
+
+/* buttons */
+.big-btn { padding:10px 16px; border-radius:12px; background: linear-gradient(90deg,#ffd166,#ffb84d); border:none; font-weight:800; color:#082; cursor:pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+.big-btn:hover { transform: translateY(-4px); }
+
+/* small helpers */
+.target-line { margin-top:8px; padding:8px; border-radius:8px; background: rgba(255,255,255,0.02); font-weight:700; color:#fff; }
+
+/* responsive */
+@media (max-width: 920px) {
+  .hc-play-area { grid-template-columns: 1fr; }
+  .hc-right { order: -1; }
+  .hc-card { padding:12px; }
+  .hc-move-btn { padding:8px; }
+}

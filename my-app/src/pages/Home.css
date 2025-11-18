@@ -1,0 +1,157 @@
+/* Page background */
+.home-container {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(180deg, #c7d8ff, #e6ccff);
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Logout button at top-right */
+.logout-btn {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  padding: 12px 22px;
+  background: #dc3545;
+  border: none;
+  color: white;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.logout-btn:hover {
+  transform: scale(1.08);
+  background: #b52b38;
+}
+
+/* Header box made larger & premium */
+.header {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 50px;
+  margin-bottom: 40px;
+  text-align: center;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+  animation: slideDown 0.7s ease;
+}
+
+.header h1 {
+  margin: 0 0 15px 0;
+  font-size: 42px;
+  color: #222;
+}
+
+.header p {
+  margin: 0;
+  color: #555;
+  font-size: 18px;
+}
+
+/* Section boxes */
+.section {
+  background: #ffe8cc;
+  border-radius: 18px;
+  padding: 30px;
+  margin-bottom: 40px;
+  border: 1px solid #f0c08c;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.section-blue {
+  background: #d6f1ff;
+  border: 1px solid #a9d9f5;
+}
+
+.section-green {
+  background: #e5ffe5;
+  border: 1px solid #b5e7b5;
+}
+
+.sec-title {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Cards */
+.game-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+}
+
+.game-card {
+  width: 120px;
+  height: 120px;
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  position: relative;
+  transition: 0.25s;
+}
+
+.game-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0px 6px 15px rgba(0,0,0,0.25);
+}
+
+.card-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 12px;
+  padding: 6px;
+  text-align: center;
+  border-radius: 0 0 14px 14px;
+}
+
+/* Back to top button */
+.back-btn {
+  display: block;
+  margin: auto;
+  margin-bottom: 40px;
+  padding: 12px 30px;
+  background: #7b4dff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.25s;
+}
+
+.back-btn:hover {
+  transform: scale(1.06);
+}
+
+/* Animations */
+
+.fade {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

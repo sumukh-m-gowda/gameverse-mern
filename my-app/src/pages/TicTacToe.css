@@ -1,0 +1,148 @@
+.ttt-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a1a3d, #0d2250, #0f2c66);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+.ttt-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 20px 30px;
+  width: 900px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+}
+
+.ttt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.ttt-controls button {
+  padding: 6px 14px;
+  margin-left: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.yellow-btn {
+  background: #f6c90e;
+  color: #1a1a1a !important;
+}
+
+.ttt-controls button:hover {
+  transform: scale(1.05);
+}
+
+.ttt-main {
+  display: flex;
+  gap: 30px;
+}
+
+.ttt-board {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.15s;
+}
+
+.square:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.win {
+  outline: 4px solid #f6c90e;
+}
+
+.x-mark {
+  color: #f6c90e;
+  font-weight: bold;
+}
+
+.o-mark {
+  color: #8bb4ff;
+  font-weight: bold;
+}
+
+.ttt-sidebar {
+  width: 250px;
+}
+
+.status-box, .history-box {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 14px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.label {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.status-text {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.winner-text {
+  color: #f6c90e;
+  font-weight: bold;
+}
+
+.history-btn {
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: #d0d8ff;
+  margin-bottom: 4px;
+}
+
+.history-btn:hover {
+  text-decoration: underline;
+}
+
+.no-moves {
+  color: #cccccc;
+  font-size: 14px;
+}
+
+.ttt-footer {
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 15px;
+}

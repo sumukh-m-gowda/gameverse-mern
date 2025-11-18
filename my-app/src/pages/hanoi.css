@@ -1,0 +1,152 @@
+/* Tower of Hanoi — robust UI */
+
+.hanoi-root {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  padding: 20px;
+  color: #222;
+  font-family: Inter, sans-serif;
+  text-align: center;
+}
+
+.hanoi-title {
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 18px;
+  color: #fff;
+  text-shadow: 0px 2px 6px rgba(0,0,0,0.28);
+}
+
+.hanoi-controls {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+.hanoi-controls input {
+  width: 64px;
+  padding: 6px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.hanoi-controls button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #ffe066;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hanoi-controls button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.moves {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+}
+
+/* board layout */
+.hanoi-board {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+  margin-top: 34px;
+  padding: 0 14px;
+}
+
+/* PEG - KEY FIXES FOR STACKING */
+.peg {
+  width: 30%;
+  height: 340px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 12px;
+  position: relative;
+
+  /* vital: stack from bottom visually */
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 24px;
+  padding-top: 24px;
+  transition: box-shadow 160ms ease;
+}
+
+/* subtle highlight when source peg is picked */
+.peg.picked-from {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18), inset 0 3px 8px rgba(255,255,255,0.02);
+}
+
+/* pole (visual only) stays above background but below disks */
+.pole {
+  position: absolute;
+  width: 12px;
+  height: 210px;
+  background: #333;
+  left: 50%;
+  top: 36px;
+  transform: translateX(-50%);
+  border-radius: 6px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* disk base */
+.disk {
+  height: 36px;
+  margin: 8px 0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #fff;
+  transition: transform 180ms cubic-bezier(.2,.9,.3,1), box-shadow 160ms ease;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+  position: relative;
+  z-index: 2; /* ensure disks render above pole */
+  cursor: grab;
+  user-select: none;
+}
+
+/* top disk gets slight lift effect */
+.disk-top {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+}
+
+/* label inside disk */
+.disk-label { pointer-events: none; }
+
+/* drag feedback */
+.disk:active {
+  cursor: grabbing;
+  transform: scale(1.02) translateY(-4px);
+}
+
+/* responsive width mapping already adjusted inline; color palette: */
+.disk-1 { background: linear-gradient(180deg,#f94144,#e63946); }
+.disk-2 { background: linear-gradient(180deg,#f3722c,#ee6c2d); }
+.disk-3 { background: linear-gradient(180deg,#f9c74f,#f6bd31); color:#2b2b2b; }
+.disk-4 { background: linear-gradient(180deg,#90be6d,#7fb86a); }
+.disk-5 { background: linear-gradient(180deg,#43aa8b,#2b9b7b); }
+.disk-6 { background: linear-gradient(180deg,#577590,#4b6280); }
+.disk-7 { background: linear-gradient(180deg,#9d4edd,#8a3dd8); }
+.disk-8 { background: linear-gradient(180deg,#480ca8,#3a0a89); }
+
+/* small screens */
+@media (max-width: 880px) {
+  .hanoi-board { flex-direction: column; align-items: center; gap: 18px; }
+  .peg { width: 88%; height: 300px; }
+  .hanoi-controls { flex-wrap: wrap; gap: 8px; }
+}
