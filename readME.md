@@ -1,108 +1,221 @@
-# Traffic Challan Management System
+# GameVerse – Online Gaming Platform
 
-A Digital Traffic Fine and Challan Management System developed in C using Data Structures. The project allows users to register vehicles, manage traffic violations, track fines, and maintain payment history through an efficient command-line interface.
+GameVerse is a full-stack web application that provides an online gaming platform where users can create accounts, explore games, track their progress, participate in tournaments, and compete on leaderboards. The project follows a modern client-server architecture using React for the frontend and Node.js with Express and MongoDB for the backend.
 
 ## Features
 
-- Vehicle registration
-- Search vehicle by license number
-- Remove registered vehicles
-- Display all registered vehicles
-- Add traffic challans
-- Pay pending fines
-- View offense history
-- View payment history
-- Dynamic memory management
+### User Management
+- User registration and login
+- Secure authentication
+- User profile management
+- Session handling
 
-## Data Structures Used
+### Game Management
+- Browse available games
+- View game details
+- Track gameplay progress
+- Save user achievements
 
-- Binary Search Tree (BST)
-  - Stores vehicle records for efficient insertion, searching, and deletion.
-- Linked List
-  - Maintains multiple challans associated with each vehicle.
-- Stack
-  - Stores payment history for recently paid fines.
+### Tournament System
+- Create and manage tournaments
+- Register players
+- Track tournament progress
+- View tournament information
+
+### Leaderboards
+- Global leaderboard
+- Player rankings
+- Score tracking
+- Performance statistics
+
+### Security Features
+- JWT Authentication
+- Password encryption using bcrypt
+- Rate limiting
+- Input validation
+- CORS protection
+- Error handling middleware
+
+## Tech Stack
+
+### Frontend
+- React.js
+- Vite
+- React Router
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- bcrypt.js
+
+### Additional Tools
+- Cloudinary (Image Storage)
+- Nodemon
+- dotenv
+- CORS
+- Express Middleware
 
 ## Project Structure
 
 ```
-.
-├── main.c          # Menu-driven application
-├── traffic.c       # Core implementation
-├── traffic.h       # Header file and data structures
-└── dsa_mini_project_PPT.pptx
+GameVerse/
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── logs/
+│   ├── app.js
+│   └── package.json
+│
+└── README.md
 ```
 
-## Technologies
+## Database Models
 
-- C Programming
-- Data Structures
-- GCC Compiler
-- Command Line Interface (CLI)
+The application uses MongoDB with Mongoose models for:
 
-## System Functionalities
+- User
+- Game
+- Tournament
+- Leaderboard
+- Game Progress
+- Session
 
-- Register a new vehicle
-- Search vehicle details
-- Delete vehicle records
-- Display all registered vehicles
-- Issue traffic challans
-- Pay outstanding fines
-- View offense history
-- View payment history
+## Backend Modules
 
-## How to Compile
+### Controllers
+- Authentication Controller
+- User Controller
+- Game Controller
+- Tournament Controller
+- Progress Controller
+
+### Middleware
+- Authentication
+- Error Handling
+- Logger
+- Rate Limiter
+- Validation
+
+### Configuration
+- Database Connection
+- Cloudinary Configuration
+- Environment Variables
+- CORS Configuration
+
+## Installation
+
+### Clone the Repository
 
 ```bash
-gcc main.c traffic.c -o traffic
+git clone https://github.com/yourusername/gameverse.git
+cd gameverse
 ```
 
-## Run
+### Backend Setup
 
 ```bash
-./traffic
+cd backend
+npm install
 ```
 
-On Windows:
+Create a `.env` file and configure the required environment variables.
+
+Example:
+
+```env
+PORT=5000
+MONGODB_URI=your_mongodb_connection
+JWT_SECRET=your_secret_key
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+```
+
+Start the backend server:
 
 ```bash
-traffic.exe
+npm run dev
 ```
 
-## Sample Menu
+### Frontend Setup
 
-```
-1. Register Vehicle
-2. Search Vehicle
-3. Remove Vehicle
-4. Display All Vehicles
-5. Add Challan
-6. Pay Fine
-7. View Offense History
-8. View Payment History
-9. Exit
+```bash
+cd frontend
+npm install
+npm run dev
 ```
 
-## Learning Outcomes
+The frontend will typically run on:
 
-- Binary Search Tree operations
-- Linked List implementation
-- Stack implementation
-- Dynamic memory allocation
-- Modular programming in C
-- File organization using header files
-- Menu-driven application development
+```
+http://localhost:5173
+```
+
+The backend will run on:
+
+```
+http://localhost:5000
+```
+
+## API Features
+
+- User Authentication
+- User Management
+- Game Management
+- Tournament APIs
+- Progress Tracking
+- Leaderboard APIs
+
+## Security
+
+- JWT-based authentication
+- Encrypted passwords
+- Request validation
+- Protected routes
+- Rate limiting
+- Secure API middleware
 
 ## Future Improvements
 
-- Persistent file/database storage
-- User authentication
+- Multiplayer support
+- Real-time gameplay using Socket.io
+- Friend system
+- Chat functionality
+- Notifications
+- Achievement badges
+- Game recommendations
+- Payment gateway integration
 - Admin dashboard
-- Fine analytics and reports
-- Search by owner details
-- Vehicle update functionality
-- Graphical User Interface (GUI)
+- Dark mode
+- Mobile responsive improvements
+
+## Learning Outcomes
+
+- MERN Stack Development
+- REST API Design
+- MongoDB Database Modeling
+- Authentication and Authorization
+- React Component Architecture
+- Backend Middleware
+- CRUD Operations
+- MVC Architecture
+- Environment Configuration
+- Full-Stack Application Development
 
 ## Author
 
-Developed as a Data Structures Mini Project.
+Developed as a Web Technologies Mini Project using the MERN Stack.
