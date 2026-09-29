@@ -1,17 +1,29 @@
 import jwt from "jsonwebtoken";
 
 export default function authMiddleware(req, res, next) {
-  const authHeader = req.headers["authorization"];
-  if (!authHeader) return res.status(401).json({ error: "No token" });
+  const authHeader = req.headers.authorization;
 
-  const token = authHeader.split(" ")[1]; // "Bearer <token>"
-  if (!token) return res.status(401).json({ error: "No token" });
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return res.status(401).json({
+      message: "Authentication required"
+    });
+  }
+
+  const token = authHeader.split(" ")[1];
+
+  if (!token || !process.env.JWT_SECRET) {
+    return res.status(401).json({
+      message: "Invalid authentication"
+    });
+  }
 
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = payload; // { id, username, iat, exp }
+    req.user = payload;
     next();
-  } catch (err) {
-    return res.status(401).json({ error: "Invalid token" });
+  } catch {
+    return res.status(401).json({
+      message: "Invalid or expired token"
+    });
   }
 }
